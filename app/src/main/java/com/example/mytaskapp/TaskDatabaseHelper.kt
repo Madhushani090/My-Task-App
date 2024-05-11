@@ -1,5 +1,6 @@
 package com.example.mytaskapp
 
+import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
@@ -55,6 +56,34 @@ class TaskDatabaseHelper(context: Context):SQLiteOpenHelper(context, DATABASE_NA
         cursor.close()
         db.close()
         return tasksList
+    }
+
+    fun updateTask(task: Task){
+        val db= writableDatabase
+        val values= ContentValues().apply{
+            put(COLUMN_TITLE,task.title)
+            put(COLUMN_CONTENT,task.content)
+
+        }
+        val whereClause ="$COLUMN_ID =?"
+        val whereArgs = arrayOf(task.id.toString())
+        db.update(TABLE_NAME,values,whereClause,whereArgs)
+        db.close()
+    }
+    fun getTaskByd(taskId:Int):Task{
+        val db =readableDatabase
+        val query ="SELECT * FROM $TABLE_NAME WHERE $COLUMN_ID =$taskId"
+        val cursor =db.rawQuery(query,null)
+        cursor.moveToFirst()
+
+        val id= cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_ID))
+        val title = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_ID))
+        val content =cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_CONTENT))
+
+        cursor.close()
+        db.close()
+        return Task(id,title,content)
+
     }
 
 }
