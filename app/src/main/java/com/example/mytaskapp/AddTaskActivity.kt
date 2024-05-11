@@ -2,10 +2,8 @@ package com.example.mytaskapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.inputmethod.InputBinding
 import android.widget.Toast
 import com.example.mytaskapp.databinding.ActivityAddTaskBinding
-import com.example.mytaskapp.databinding.ActivityMainBinding
 
 class AddTaskActivity : AppCompatActivity() {
 
