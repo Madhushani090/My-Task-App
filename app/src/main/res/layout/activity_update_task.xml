@@ -6,7 +6,8 @@
     android:orientation="vertical"
     android:padding="16dp"
     android:layout_height="match_parent"
-    tools:context=".UpdateTaskActivity">
+    tools:context=".UpdateTaskActivity"
+    android:background="@drawable/todo1">
 
     <TextView
         android:id="@+id/editTaskHeading"
@@ -15,7 +16,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/poppins"
-        android:text="Edit Task"
+        android:text="@string/edit_task"
         android:textColor="@color/orange"
         android:textSize="24sp" />
 
@@ -36,7 +37,7 @@
         android:layout_marginTop="14dp"
         android:background="@drawable/orange_border"
         android:fontFamily="@font/poppins"
-        android:hint="Enter the title"
+        android:hint="@string/enter_the_title"
         android:maxLines="1"
         android:padding="12dp"
         android:textSize="20sp" />
@@ -50,7 +51,7 @@
         android:background="@drawable/orange_border"
         android:fontFamily="@font/poppins"
         android:gravity="top"
-        android:hint="Enter the description"
+        android:hint="@string/enter_the_description"
         android:padding="12dp"
         android:textSize="18sp" />
 

@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">My Task App</string>
+    <string name="about">Task Mastery: Your Time, Your Way</string>
+    <string name="startText">Start</string>
+    <string name="AddtaskText">Add Task</string>
+    <string name="EnterTitle">Enter the title</string>
+    <string name="EnterDes">Enter the description</string>
+    <string name="taskstext">Tasks</string>
+    <string name="edit_task">Edit Task</string>
+    <string name="enter_the_title">Enter the title</string>
+    <string name="enter_the_description">Enter the description</string>
+    <string name="title">Title</string>
 </resources>

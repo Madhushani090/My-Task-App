@@ -5,7 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/todo1">
+
 
 
     <TextView
@@ -15,7 +17,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/poppins"
-        android:text="Tasks."
+        android:text="@string/taskstext"
         android:layout_marginStart="18dp"
         android:textColor="@color/orange"
         android:textSize="24sp"/>

@@ -9,6 +9,7 @@
     app:cardUseCompatPadding="true"
     >
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -26,7 +27,7 @@
                 android:id="@+id/titleTextview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Title"
+                android:text="@string/title"
                 android:textColor="@color/orange"
                 android:textSize="18sp"
                 android:textStyle="bold"
