@@ -15,9 +15,7 @@
         <activity
             android:name=".UpdateTaskActivity"
             android:exported="false" />
-        <activity
-            android:name=".UpdateAcitvity"
-            android:exported="false" />
+
         <activity
             android:name=".AddTaskActivity"
             android:exported="false" />
