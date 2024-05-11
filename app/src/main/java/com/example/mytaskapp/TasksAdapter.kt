@@ -7,15 +7,20 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 
 
 class TasksAdapter(private var task:List<Task>,context: Context):RecyclerView.Adapter<TasksAdapter.TaskViewHolder>(){
 
+
+    private val db:TaskDatabaseHelper = TaskDatabaseHelper(context)
+
      class TaskViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
          val titleTextView:TextView =itemView.findViewById(R.id.titleTextview)
          val contentTextView:TextView =itemView.findViewById(R.id.contentTextview)
          val updateButton:ImageView =itemView.findViewById(R.id.updateButton)
+         val deleteButton:ImageView =itemView.findViewById(R.id.deleteButton)
 
      }
 
@@ -39,7 +44,11 @@ class TasksAdapter(private var task:List<Task>,context: Context):RecyclerView.Ad
             holder.itemView.context.startActivity(intent)
         }
 
-
+       holder.deleteButton.setOnClickListener{
+           db.deleteTask(task.id)
+           refreshData(db.getAllTasks())
+           Toast.makeText(holder.itemView.context,"Task Deleted",Toast.LENGTH_SHORT).show()
+       }
     }
 
      fun refreshData(newTasks: List<Task>){
@@ -49,44 +58,3 @@ class TasksAdapter(private var task:List<Task>,context: Context):RecyclerView.Ad
 
 }
 
-
-
-//import android.content.Context
-//import android.view.LayoutInflater
-//import android.view.View
-//import android.view.ViewGroup
-//import android.widget.TextView
-//import androidx.recyclerview.widget.RecyclerView
-//
-//class NoteAdapter(private var task:List<Task>,context: Context):RecyclerView.Adapter<TasksAdapter.TaskViewHolder>(){
-//
-//    private val db: TaskDatabaseHelper = TaskDatabaseHelper(context)
-//
-//    class TaskViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-//        val titleTextView:TextView=itemView.findViewById(R.id.titletextview)
-//        val contentTextView:TextView=itemView.findViewById(R.id.contenttextview)
-//
-//    }
-//
-//    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskViewHolder {
-//        val view = LayoutInflater.from(parent.context).inflate(R.layout.task_item,parent,false)
-//        return  TaskViewHolder(view)
-//    }
-//
-//    override fun getItemCount(): Int =task.size
-//
-//
-//    override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
-//        val note= task[position]
-//        holder.titleTextView.text= note.title
-//        holder.contentTextView.text= note.content
-//
-//
-//
-//    }
-//
-//    fun refreshData(newNote:List<Task>){
-//        task= newNote
-//        notifyDataSetChanged()
-//    }
-//}
